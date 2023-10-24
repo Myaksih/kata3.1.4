@@ -11,9 +11,9 @@ import java.security.Principal;
 
 @Controller
 public class UserController {
+
     private final UserService userServiceImp;
 
-    @Autowired
     public UserController(UserService userServiceImp) {
         this.userServiceImp = userServiceImp;
     }
