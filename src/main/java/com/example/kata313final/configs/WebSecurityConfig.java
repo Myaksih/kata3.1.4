@@ -1,5 +1,6 @@
 package com.example.kata313final.configs;
 
+import com.example.kata313final.security.Security;
 import com.example.kata313final.service.UserServiceImp;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,11 +16,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final SuccessUserHandler successUserHandler;
-    private final UserServiceImp userServiceImp;
+    private final Security security;
 
-    public WebSecurityConfig(SuccessUserHandler successUserHandler, UserServiceImp userServiceImp) {
+    public WebSecurityConfig(SuccessUserHandler successUserHandler, Security security) {
         this.successUserHandler = successUserHandler;
-        this.userServiceImp = userServiceImp;
+        this.security = security;
     }
 
     @Override
@@ -48,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setPasswordEncoder(passwordEncoder());
-        authenticationProvider.setUserDetailsService(userServiceImp);
+        authenticationProvider.setUserDetailsService(security);
         return authenticationProvider;
     }
 }
