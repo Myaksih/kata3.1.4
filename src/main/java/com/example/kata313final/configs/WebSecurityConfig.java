@@ -1,7 +1,6 @@
 package com.example.kata313final.configs;
 
 import com.example.kata313final.security.Security;
-import com.example.kata313final.service.UserServiceImp;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;

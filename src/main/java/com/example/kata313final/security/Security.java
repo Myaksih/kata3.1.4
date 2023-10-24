@@ -9,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -17,7 +16,7 @@ import java.util.stream.Collectors;
 @Component
 public class Security implements UserDetailsService {
 
-    private UserServiceImp userServiceImp;
+    private final UserServiceImp userServiceImp;
 
     public Security(UserServiceImp userServiceImp) {
         this.userServiceImp = userServiceImp;

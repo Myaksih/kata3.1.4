@@ -4,7 +4,6 @@ import com.example.kata313final.model.Role;
 import com.example.kata313final.model.User;
 import com.example.kata313final.repository.RoleRepository;
 import com.example.kata313final.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
@@ -14,11 +13,14 @@ import java.util.Collections;
 @Component
 public class Init {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
-    @Autowired
-    private RoleRepository roleRepository;
+    private final RoleRepository roleRepository;
+
+    public Init(UserService userService, RoleRepository roleRepository) {
+        this.userService = userService;
+        this.roleRepository = roleRepository;
+    }
 
     @PostConstruct
     public void init() {

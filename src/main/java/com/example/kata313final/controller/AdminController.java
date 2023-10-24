@@ -6,7 +6,6 @@ import com.example.kata313final.service.RoleService;
 import com.example.kata313final.service.RoleServiceImp;
 import com.example.kata313final.service.UserService;
 import com.example.kata313final.service.UserServiceImp;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,9 +24,9 @@ import java.util.List;
 @RequestMapping("/admin")
 public class AdminController {
 
-    private UserService userService;
+    private final UserService userService;
 
-    private RoleService roleService;
+    private final RoleService roleService;
 
     public AdminController(UserServiceImp userService, RoleServiceImp roleService) {
         this.userService = userService;
