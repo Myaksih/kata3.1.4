@@ -101,6 +101,10 @@ public class User {
         return roles;
     }
 
+    public String getAllRolesAsString() {
+        return getRoles().toString().replaceAll("\\[", "").replaceAll("\\]","").replace("ROLE_", "");
+    }
+
 
     @Override
     public boolean equals(Object o) {
