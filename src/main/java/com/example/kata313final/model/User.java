@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "users")
@@ -101,8 +102,12 @@ public class User {
         return roles;
     }
 
-    public String getAllRolesAsString() {
-        return getRoles().toString().replaceAll("\\[", "").replaceAll("\\]","").replace("ROLE_", "");
+    public String getRole() {
+        String rolesString = roles.stream()
+                .map(Role::getName)
+                .collect(Collectors.joining(", "));
+        return rolesString;
+
     }
 
 

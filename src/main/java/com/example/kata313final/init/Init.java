@@ -14,7 +14,6 @@ import java.util.Collections;
 public class Init {
 
     private final UserService userService;
-
     private final RoleRepository roleRepository;
 
     public Init(UserService userService, RoleRepository roleRepository) {

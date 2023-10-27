@@ -2,6 +2,7 @@ package com.example.kata313final.security;
 
 import com.example.kata313final.model.Role;
 import com.example.kata313final.model.User;
+import com.example.kata313final.service.UserService;
 import com.example.kata313final.service.UserServiceImp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,14 +17,14 @@ import java.util.stream.Collectors;
 @Component
 public class Security implements UserDetailsService {
 
-    private final UserServiceImp userServiceImp;
+    private final UserService userService;
 
-    public Security(UserServiceImp userServiceImp) {
-        this.userServiceImp = userServiceImp;
+    public Security(UserService userService) {
+        this.userService = userService;
     }
 
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        User user = userServiceImp.findByUsername(name);
+        User user = userService.findByUsername(name);
         if (user == null) {
             throw new UsernameNotFoundException(String.format("User `%s` not found", name));
         }

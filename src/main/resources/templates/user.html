@@ -16,7 +16,7 @@
         <span>
         <span class="navbar-brand font-weight-bold" th:text="${user.getName}"></span>
         <span class="navbar-brand"
-              th:text="'with roles: ' + ${user.getAllRolesAsString()}"></span>
+              th:text="'with roles: ' + ${user.getRole()}"></span>
         </span>
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -64,8 +64,8 @@
                             <td><p th:text="${user.getLastName()}"></p></td>
                             <td><p th:text="${user.getAge()}"></td>
                             <td>
-                                <div th:each="r : ${user.getRoles()}">
-                                    <p id="role_field" th:text="${user.getAllRolesAsString()}"></p>
+                                <div th:each="r : ${user.getRole()}">
+                                    <p id="role_field" th:text="${user.getRole()}"></p>
                                 </div>
                             </td>
                         </tr>
